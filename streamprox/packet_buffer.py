@@ -50,7 +50,9 @@ class PacketBuffer:
             return True
 
         # see if we've encountered the delimiter
-        data = "".join(self.bufdata)
+        data = ""
+        for item in self.bufdata :
+            data += item.decode('utf-8')
         pos = data.find(self.delimiter) 
         if pos != -1:
             if self.debug:
